@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-registry
+  labels:
+    app: service-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-registry
+  template:
+    metadata:
+      labels:
+        app: service-registry
+    spec:
+      containers:
+        - name: service-registry
+          image: nganeemmanuel/room8-serviceregistry:latest
+          ports:
+            - containerPort: 8761
+          env:
+            - name: JAVA_OPTS
+              value: "-Dspring.profiles.active=docker"
