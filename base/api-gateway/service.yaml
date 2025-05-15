@@ -2,11 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: api-gateway-ingress
+  namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
+    argocd.argoproj.io/tracking-id: api-gateway:networking.k8s.io/Ingress:default/api-gateway-ingress
 spec:
+  ingressClassName: nginx   # <-- ✨ REQUIRED
   rules:
-    - host: ""
+    - host: ''
       http:
         paths:
           - path: /api(/|$)(.*)
