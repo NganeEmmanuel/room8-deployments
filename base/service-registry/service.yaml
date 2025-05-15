@@ -1,11 +1,20 @@
-apiVersion: v1
-kind: Service
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: service-registry
+  name: service-registry-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    argocd.argoproj.io/tracking-id: service-registry:networking.k8s.io/Ingress:default/service-registry-ingress
 spec:
-  selector:
-    app: service-registry
-  ports:
-    - protocol: TCP
-      port: 8761
-      targetPort: 8761
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /eureka
+            pathType: Prefix
+            backend:
+              service:
+                name: service-registry
+                port:
+                  number: 80
