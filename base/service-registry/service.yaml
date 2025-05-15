@@ -5,7 +5,6 @@ metadata:
   namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    argocd.argoproj.io/tracking-id: service-registry:networking.k8s.io/Ingress:default/service-registry-ingress
 spec:
   ingressClassName: nginx
   rules:
@@ -17,4 +16,4 @@ spec:
               service:
                 name: service-registry
                 port:
-                  number: 80
+                  number: 8761   # ✅ Use the correct service port
