@@ -4,13 +4,13 @@ metadata:
   name: service-registry-ingress
   namespace: default
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: ""
 spec:
   ingressClassName: nginx
   rules:
     - http:
         paths:
-          - path: /eureka
+          - path: /eureka(/|$)(.*)
             pathType: Prefix
             backend:
               service:
