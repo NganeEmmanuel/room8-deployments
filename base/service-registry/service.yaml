@@ -3,17 +3,22 @@ kind: Ingress
 metadata:
   name: service-registry-ingress
   namespace: default
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: ""
 spec:
   ingressClassName: nginx
   rules:
     - http:
         paths:
-          - path: /eureka(/|$)(.*)
+          - path: /eureka
             pathType: Prefix
             backend:
               service:
                 name: service-registry
                 port:
-                  number: 8761   # ✅ Use the correct service port
+                  number: 8761
+          - path: /eureka/
+            pathType: Prefix
+            backend:
+              service:
+                name: service-registry
+                port:
+                  number: 8761
