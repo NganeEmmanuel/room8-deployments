@@ -12,6 +12,6 @@ spec:
       protocol: TCP
       port: 8761
       targetPort: 8761
-    - name: http-monitor
-      port: 8080
-      targetPort: 8080
+    - name: metrics
+      port: 9001
+      targetPort: 9001
