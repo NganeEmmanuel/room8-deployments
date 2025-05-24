@@ -11,7 +11,7 @@ spec:
     - http:
         paths:
           - path: /eureka
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: service-registry
