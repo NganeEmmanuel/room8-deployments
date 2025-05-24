@@ -12,6 +12,3 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 8765
-    - name: metrics
-      port: 9001
-      targetPort: 9001
