@@ -21,4 +21,4 @@ spec:
             - containerPort: 8765
           env:
             - name: JAVA_OPTS
-              value: "-Dspring.profiles.active=docker"
+              value: "-Dspring.profiles.active=prod"

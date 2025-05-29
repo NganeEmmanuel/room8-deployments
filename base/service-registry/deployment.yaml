@@ -21,4 +21,6 @@ spec:
             - containerPort: 8761
           env:
             - name: JAVA_OPTS
-              value: "-Dspring.profiles.active=docker"
+              value: "-Dspring.profiles.active=prod"
+            - name: EUREKA_HOSTNAME
+              value: "localhost"
