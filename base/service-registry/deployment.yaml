@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: service-registry
-          image: nganeemmanuel/room8-serviceregistry:20250524163821
+          image: nganeemmanuel/room8-serviceregistry:20250530132200
           ports:
             - containerPort: 8761
           env:
