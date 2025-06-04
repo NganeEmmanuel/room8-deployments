@@ -30,3 +30,6 @@ spec:
                 secretKeyRef:
                   name: redis-secret
                   key: redis-port
+          envFrom:
+            - configMapRef:
+                name: auth-service-config
