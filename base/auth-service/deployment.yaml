@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: auth-service
-          image: your-dockerhub/user-service:latest
+          image: nganeemmanuel/room8-authservice:20250604171229
           ports:
             - containerPort: 8081
           env:
