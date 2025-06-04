@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: nganeemmanuel/room8-userservice:20250604171229
+          image: nganeemmanuel/room8-userservice:20250604194459
           ports:
             - containerPort: 8082
           env:
