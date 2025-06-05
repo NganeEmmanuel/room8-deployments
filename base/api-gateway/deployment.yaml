@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: api-gateway
-          image: nganeemmanuel/room8-apigateway:20250605130118
+          image: nganeemmanuel/room8-apigateway:20250605131114
           ports:
             - containerPort: 8765
           env:
