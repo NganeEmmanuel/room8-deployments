@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-service
+  labels:
+    app: search-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: search-service
+  template:
+    metadata:
+      labels:
+        app: search-service
+    spec:
+      containers:
+        - name: search-service
+          image: nganeemmanuel/room8-searchservice:20250605132141
+          ports:
+            - containerPort: 8086
+          env:
+            - name: ELASTIC_URI
+              valueFrom:
+                secretKeyRef:
+                  name: elastic-search-secret
+                  key: elastic-uri
+            - name: ELASTIC_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: elastic-search-secret
+                  key: elastic-username
+            - name: ELASTIC_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: elastic-search-secret
+                  key: elastic-password
+          envFrom:
+            - configMapRef:
+                name: search-service-config
