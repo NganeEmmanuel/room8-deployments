@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: room-service
+  labels:
+    app: room-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: room-service
+  template:
+    metadata:
+      labels:
+        app: room-service
+    spec:
+      containers:
+        - name: room-service
+          image: nganeemmanuel/room8-roomservice:20250607144332
+          ports:
+            - containerPort: 8083
+          env:
+            - name: JAVA_OPTS
+              value: "-Dspring.profiles.active=prod"
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: room-service-secret
+                  key: db-url
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: room-service-secret
+                  key: db-username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: room-service-secret
+                  key: db-password
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-secret
+                  key: kafka-bootstrap-servers
+          envFrom:
+            - configMapRef:
+                name: room-service-config

@@ -25,6 +25,11 @@ spec:
                 secretKeyRef:
                   name: elastic-search-secret
                   key: elastic-uri
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-secret
+                  key: kafka-bootstrap-servers
           envFrom:
             - configMapRef:
                 name: search-service-config
