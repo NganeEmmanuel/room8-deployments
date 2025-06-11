@@ -20,6 +20,8 @@ spec:
           ports:
             - containerPort: 8086
           env:
+            - name: JAVA_OPTS
+              value: "-Dspring.profiles.active=prod"
             - name: ELASTIC_URI
               valueFrom:
                 secretKeyRef:
