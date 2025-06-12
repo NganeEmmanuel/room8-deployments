@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: search-service
-          image: nganeemmanuel/room8-searchservice:20250605132141
+          image: nganeemmanuel/room8-searchservice:20250612152459
           ports:
             - containerPort: 8086
           env:
