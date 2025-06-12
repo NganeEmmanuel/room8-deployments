@@ -3,6 +3,5 @@ kind: ConfigMap
 metadata:
   name: auth-service-config
 data:
-  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://service-registry.default.svc.cluster.local:8761/eureka
-"
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://service-registry:8761/eureka"
   SPRING_APPLICATION_NAME: "auth-service"
