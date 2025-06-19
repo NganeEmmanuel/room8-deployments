@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: nganeemmanuel/room8-frontend:20250619135725
+          image: nganeemmanuel/room8-frontend:20250619140629
           ports:
             - containerPort: 80
           volumeMounts:
