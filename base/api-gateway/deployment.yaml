@@ -27,3 +27,6 @@ spec:
                 secretKeyRef:
                   name: api-gateway-secret
                   key: allowed-origins-uri
+          envFrom:
+            - configMapRef:
+                name: api-gateway-config
