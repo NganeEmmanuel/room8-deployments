@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: nganeemmanuel/room8-frontend:20250612145053
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: env-config-volume
+              mountPath: /usr/share/nginx/html/env-config.js
+              subPath: env-config.js
+              readOnly: true
+      volumes:
+        - name: env-config-volume
+          secret:
+            secretName: frontend-secret

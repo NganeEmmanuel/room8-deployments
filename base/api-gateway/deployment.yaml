@@ -22,3 +22,8 @@ spec:
           env:
             - name: JAVA_OPTS
               value: "-Dspring.profiles.active=prod"
+            - name: ALLOWED_ORIGINS_URI
+              valueFrom:
+                secretKeyRef:
+                  name: api-gateway-secret
+                  key: allowed-origins-uri
