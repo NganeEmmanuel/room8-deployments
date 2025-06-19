@@ -21,7 +21,7 @@ spec:
             - containerPort: 80
           volumeMounts:
             - name: env-config-volume
-              mountPath: /usr/share/nginx/html/room8/env-config.js
+              mountPath: /usr/share/nginx/html/env-config.js
               subPath: env-config.js
               readOnly: true
       volumes:
