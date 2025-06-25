@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+  labels:
+    app: notification-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification-service
+  template:
+    metadata:
+      labels:
+        app: notification-service
+    spec:
+      containers:
+        - name: room-service
+          image: nganeemmanuel/room8-notificationservice:20250619143514
+          ports:
+            - containerPort: 8087
+          env:
+            - name: JAVA_OPTS
+              value: "-Dspring.profiles.active=prod"
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-secret
+                  key: kafka-bootstrap-servers
+          envFrom:
+            - configMapRef:
+                name: notification-service-config
