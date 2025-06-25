@@ -30,6 +30,21 @@ spec:
                 secretKeyRef:
                   name: redis-secret
                   key: redis-port
+            - name: TWILIO_ACCOUNT_SID
+              valueFrom:
+                secretKeyRef:
+                  name: twilio-secret
+                  key: account-sid
+            - name: TWILIO_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: twilio-secret
+                  key: auth-token
+            - name: TWILIO_VERIFY_SERVICE_SID
+              valueFrom:
+                secretKeyRef:
+                  name: twilio-secret
+                  key: verify-service-sid
           envFrom:
             - configMapRef:
                 name: auth-service-config
