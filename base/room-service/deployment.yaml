@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: room-service
-          image: nganeemmanuel/room8-roomservice:20250619143514
+          image: nganeemmanuel/room8-roomservice:20250625200618
           ports:
             - containerPort: 8083
           env:
