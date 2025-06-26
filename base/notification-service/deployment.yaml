@@ -27,6 +27,16 @@ spec:
                 secretKeyRef:
                   name: kafka-secret
                   key: kafka-bootstrap-servers
+            - name: SPRING_DATA_REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: redis-secret
+                  key: redis-host
+            - name: SPRING_DATA_REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: redis-secret
+                  key: redis-port
           envFrom:
             - configMapRef:
                 name: notification-service-config
