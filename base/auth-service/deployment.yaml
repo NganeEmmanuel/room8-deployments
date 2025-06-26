@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: auth-service
-          image: nganeemmanuel/room8-authservice:20250625200618
+          image: nganeemmanuel/room8-authservice:20250626122957
           ports:
             - containerPort: 8081
           env:
